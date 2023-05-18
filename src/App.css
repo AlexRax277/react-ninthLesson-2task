@@ -1,38 +1,119 @@
-.App {
-  text-align: center;
+body {
+    background:
+    linear-gradient(
+    rgb(160, 160, 160), transparent 1px
+    ),
+    linear-gradient(
+    90deg,
+    rgb(160, 160, 160), transparent 1px
+    );
+    background-size: 20px 20px;
+    background-position: center center;
+    padding-top: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.new {
+    margin-left: 300px;
+    padding: 10px;
+    text-decoration: none;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+    border: 2px solid darkgreen;
+    background-color: aliceblue;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.form {
+    margin: 30px;
+    position: relative;
+}
+
+.label, .input-pub {
+    display: block;
+}
+
+.input-pub {
+    box-sizing: border-box;
+    border: 2px solid grey;
+    border-radius: 5px;
+    font-size: 1em;
+    padding: .5em;
+    width: 15.5vw;
+    height: 5vh;
+    overflow: hidden;
+    margin-bottom: 15px;
+    transition: height 1.5s ease;
+    resize: none;
+}
+
+.input-pub:focus {
+    height: 15vh;
+}
+
+.card-list {
+    margin: 0;
+    padding: 0;
+}
+
+.card, .form {
+    font-family:'Times New Roman', Times, serif;
+    background-color: antiquewhite;
+    border: 2px solid darkslategray;
+    border-radius: 12px;
+    margin: 35px;
+    width: 300px;
+    min-height: 70px;
+    box-shadow: 10px 10px 10px 0px rgba(34, 60, 80, 0.2);
+    padding: 25px;
+    list-style-type: none;
+}
+
+.card, button, .close {
+    cursor: pointer;
+}
+
+.post {
+    position: relative;
+    width: 300px;
+}
+
+.post-date {
+    text-decoration: underline;
+}
+
+.post-text {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.btn-change, .btn-delete, .btn-pub {
+    position: absolute;
+    border: none;
+    border-radius: 12px;
+    bottom: 5px;
+    padding: 5px;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    text-decoration: none;
+}
+
+.btn-change, .btn-pub {
+    background-color: lightblue;
+    right: 0;
+}
+
+.btn-delete {
+    background-color: lightcoral;
+    right: -70px;
+}
+
+.close {
+    font-size: 12px;
+    color: black;
+    font-weight: 700;
+    position: absolute;
+    top: 5px;
+    right: 10px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

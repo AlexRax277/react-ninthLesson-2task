@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import NewPost from './Components/NewPost.js';
+import MainPage from './Components/MainPage.js';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Context } from "./Components/Context/Context.js";
 
+/**
+ * Компонент-приложение
+ * инициализируются переменные и пробрасываются дочерним компонентам через контекст
+ * есть ссылка на создание нового компонента
+ * роутит между страницей создания нового компонента, списком постов (и дальнейим разветвлением) и страницей 404
+ */
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [status, setStatus] = useState(false);
+  const navigate = useNavigate();
+  const url = process.env.REACT_APP_API_URL;
+  
+  return <Context.Provider value={ {status, setStatus, navigate, url} }>
+      <Link to='new'className='new'>Создать пост</Link>
+      <Routes>
+        <Route path='posts/*' element={ <MainPage /> }/>
+        <Route path='new' element={ <NewPost /> } />
+        <Route path='*' element={ <div>Упс...страница не найдена</div> } />
+      </Routes>
+      
+      
+    </Context.Provider>
 }
 
 export default App;
